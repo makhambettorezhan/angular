@@ -1,1 +1,23 @@
-<p>album works!</p>
+<div class="container"
+    fxLayout="column"
+    fxLayoutGap="10px">
+
+    <div fxFlex>
+        <h1>Greatest Music Albums</h1>
+        <hr>
+    </div>
+    
+    <div fxFlex>
+        <mat-grid-list cols="4" rowHeight="200px" >
+            <mat-grid-tile *ngFor="let album of albums" (click)="onSelect(album)">
+                <mat-grid-tile-header>
+                    <h1>{{album.title}}</h1>
+                </mat-grid-tile-header>
+                <img src="{{album.cover}}" alt="{{album.title}}" style="height: 200px;">
+                <mat-grid-tile-footer>{{album.artist}}</mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+   <app-album-detail [album]="selectedAlbum"></app-album-detail>
+</div>

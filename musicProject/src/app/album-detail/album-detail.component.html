@@ -1,0 +1,45 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px" 
+    fxLayoutGap.xs="0">
+
+  <div fxFlex="40" *ngIf="album">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{ album.title | uppercase }}
+            </mat-card-title>
+        </mat-card-header>
+                                        
+        <img mat-card-image src="{{ album.cover }}" alt="{{album.title}}"/>
+
+        <mat-card-content>
+            <p>{{ album.artist }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button>BACK</button>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
+   
+</div>
+
+  <div fxFlex="40" *ngIf="album">
+    <h1>Track List</h1>
+    <mat-list>
+
+        <mat-list-item *ngFor="let track of album.tracks" style="color: white;">
+            <span matLine>{{track.title}}</span>
+            <audio controls src="{{ track.preview }}"></audio>
+            <span matLine>{{track.duration}}</span>
+        </mat-list-item>
+
+    </mat-list>
+  </div>
+
+</div>

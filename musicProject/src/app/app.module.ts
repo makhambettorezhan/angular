@@ -1,3 +1,4 @@
+import { AlbumService } from './services/album.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,25 +7,35 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AlbumComponent } from './album/album.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AlbumComponent
+    AlbumComponent,
+    AlbumDetailComponent
   ],
   imports: [
     BrowserModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    AlbumService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

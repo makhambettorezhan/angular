@@ -1,3 +1,5 @@
+import { AlbumService } from './../services/album.service';
+import { Album } from './../shared/album';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album.component.scss']
 })
 export class AlbumComponent implements OnInit {
+  albums: Album[];
 
-  constructor() { }
+  selectedAlbum: Album;
+
+  constructor(private albumService: AlbumService) { }
 
   ngOnInit(): void {
+    this.albums = this.albumService.getAlbums();
   }
 
+  onSelect(album: Album): void {
+    this.selectedAlbum = album; 
+  }
 }
