@@ -1,6 +1,22 @@
-<mat-toolbar color="primary">
-  <a mat-button><span class="fa fa-home fa-lg"></span>Home</a>
+<mat-toolbar color="primary" class="black">
+  <a mat-button><span class="material-icons">home</span>Home</a>
   <a mat-button>About</a>
   <a mat-button>Contact</a>
   <a mat-button>Info</a>
 </mat-toolbar>
+
+<div class="container jumbotron dark"
+    fxLayout="row" 
+    fxLayout.lt-md="column"
+    fxLayoutGap="30px">
+
+  <div fxFlex fxLayout="column" fxLatout.gt-sm="50%">
+    <h1>Music Collection Project</h1>
+    <p>Here you will fint enormous library of music collection of all time. Greatest songs, greatest artists here in one single-page website </p>
+  </div>
+     
+  <div fxFlex
+    fxLayout.gt-sm="20%">
+    <img src="../../assets/image/logo.png" alt="Logo">
+  </div>
+</div>
