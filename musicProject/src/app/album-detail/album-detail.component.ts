@@ -15,5 +15,14 @@ export class AlbumDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  toValidFormat(duration: number): string {
+    var minutes = 0;
+
+    while( duration > 60 ) {
+      minutes++;
+      duration -= 60;
+    }
+    if(duration < 10) return `(${minutes}:0${duration})`  
+    return `(${minutes}:${duration})`;
+  }
 }

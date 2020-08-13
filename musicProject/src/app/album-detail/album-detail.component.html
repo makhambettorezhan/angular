@@ -29,14 +29,22 @@
    
 </div>
 
-  <div fxFlex="40" *ngIf="album">
+  <div fxFlex="40" *ngIf="album" fxFlexLayout="column">
     <h1>Track List</h1>
     <mat-list>
 
         <mat-list-item *ngFor="let track of album.tracks" style="color: white;">
-            <span matLine>{{track.title}}</span>
-            <audio controls src="{{ track.preview }}"></audio>
-            <span matLine>{{track.duration}}</span>
+            <div fxFlex fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1.5rem;">
+                <div>
+                    <span matLine>{{track.title }}</span>
+                    <span matLine>{{ toValidFormat(track.duration) }}</span>
+                </div>
+                <div class="flex-spacer"></div>
+                <audio controls src="{{ track.preview }}"></audio>
+
+            </div>
+            
+            
         </mat-list-item>
 
     </mat-list>

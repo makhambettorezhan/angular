@@ -7,8 +7,8 @@
         <hr>
     </div>
     
-    <div fxFlex>
-        <mat-grid-list cols="4" rowHeight="200px" >
+    <div fxFlex  fxLayout.sm="column">
+        <mat-grid-list cols="2" rowHeight="200px" >
             <mat-grid-tile *ngFor="let album of albums" (click)="onSelect(album)">
                 <mat-grid-tile-header>
                     <h1>{{album.title}}</h1>
