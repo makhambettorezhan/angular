@@ -10,7 +10,7 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>
-                {{ dish.name | uppercase }}
+                <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
             </mat-card-title>
         </mat-card-header>
                                         
