@@ -27,7 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { DishService } from './services/dish.service';
 import { LoginComponent } from './login/login.component';
@@ -62,7 +62,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     DishService,
