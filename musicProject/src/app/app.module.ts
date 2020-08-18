@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AlbumService } from './services/album.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,7 +32,8 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
     BrowserAnimationsModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    AppRoutingModule
   ],
   providers: [
     AlbumService
