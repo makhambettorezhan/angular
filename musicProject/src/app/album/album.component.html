@@ -3,15 +3,15 @@
     fxLayoutGap="10px">
 
     <div fxFlex>
-        <h1>Greatest Music Albums</h1>
+        <h1 class="dark-grey">Greatest Music Albums</h1>
         <hr>
     </div>
     
     <div fxFlex  fxLayout.sm="column">
         <mat-grid-list cols="2" rowHeight="200px" >
-            <mat-grid-tile *ngFor="let album of albums" (click)="onSelect(album)">
-                <mat-grid-tile-header>
-                    <h1>{{album.title}}</h1>
+            <mat-grid-tile *ngFor="let album of albums" [routerLink]="['/albumdetail', album.id]">
+                <mat-grid-tile-header style="font-size: 1.5rem;">
+                    {{album.title}}
                 </mat-grid-tile-header>
                 <img src="{{album.cover}}" alt="{{album.title}}" style="height: 200px;">
                 <mat-grid-tile-footer>{{album.artist}}</mat-grid-tile-footer>
@@ -19,5 +19,4 @@
         </mat-grid-list>
     </div>
 
-   <app-album-detail [album]="selectedAlbum"></app-album-detail>
 </div>

@@ -21,7 +21,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-button>BACK</button>
+            <button mat-button (click)="goBack()">BACK</button>
             <button mat-button>LIKE</button>
             <button mat-button>SHARE</button>
         </mat-card-actions>
@@ -30,20 +30,15 @@
 </div>
 
   <div fxFlex="40" *ngIf="album" fxFlexLayout="column">
-    <h1>Track List</h1>
+    <h1 class="dark-grey">Track List</h1>
     <mat-list>
 
         <mat-list-item *ngFor="let track of album.tracks" style="color: white;">
-            <div fxFlex fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="1.5rem;">
-                <div>
-                    <span matLine>{{track.title }}</span>
-                    <span matLine>{{ toValidFormat(track.duration) }}</span>
-                </div>
-                <div class="flex-spacer"></div>
-                <audio controls src="{{ track.preview }}"></audio>
-
-            </div>
             
+            <span matLine>{{ track.title }}</span>
+            <span matLine>{{ toValidFormat(track.duration) }}</span>
+            <div class="flex-spacer"></div>
+            <audio controls src="{{ track.preview }}"></audio>
             
         </mat-list-item>
 

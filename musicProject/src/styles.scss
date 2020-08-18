@@ -6,6 +6,7 @@ body {
   margin: 0;
   color: white;
   background-color: black;
+  font-family: Roboto, sans-serif;
 }
 
 .container {
@@ -15,4 +16,13 @@ body {
 
 .flex-spacer {
   flex: 1 1 auto;
+}
+
+.active {
+  background-color: #dec79b;
+  color: #000;
+}
+
+.dark-grey {
+  color: #dec79b !important;
 }

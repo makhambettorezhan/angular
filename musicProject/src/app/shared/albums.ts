@@ -2,6 +2,7 @@ import { Album } from './album';
 
 export const ALBUMS: Album[] = [
   {
+    id: '0',
     title: "The Dark Side of the Moon",
     cover: "https://e-cdns-images.dzcdn.net/images/cover/d2ab6b9d9f360265dfea5f7ffc143fb3/250x250-000000-80-0-0.jpg",
     artist: "Pink Floyd",
@@ -59,6 +60,7 @@ export const ALBUMS: Album[] = [
     ]
   },
   {
+    id: '1',
     title: "The Final Cut",
     cover: "https://e-cdns-images.dzcdn.net/images/cover/12640e8b12acf53e436cacb373cf1ebd/250x250-000000-80-0-0.jpg",
     artist: "Pink Floyd",
@@ -131,6 +133,7 @@ export const ALBUMS: Album[] = [
     ]
   },
   {
+    id: '2',
     title: "The Wall",
     cover: "https://cdns-images.dzcdn.net/images/cover/7e25330c468696e8bca65050995d2fc7/250x250-000000-80-0-0.jpg",
     artist: "Pink Floyd",
@@ -268,6 +271,7 @@ export const ALBUMS: Album[] = [
     ]
   },
   {
+    id: '3',
     title: "The Piper at the Gates of Dawn",
     cover: "https://cdns-images.dzcdn.net/images/cover/2f3c8530778d0e76ae7ca155f0417128/250x250-000000-80-0-0.jpg",
     artist: "Pink Floyd",

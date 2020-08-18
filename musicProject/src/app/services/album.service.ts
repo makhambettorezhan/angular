@@ -12,4 +12,8 @@ export class AlbumService {
   getAlbums(): Album[] {
     return ALBUMS;
   }
+
+  getAlbumById(id: string): Album {
+    return ALBUMS.filter(album => album.id === id)[0];
+  }
 }
