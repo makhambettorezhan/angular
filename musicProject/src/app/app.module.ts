@@ -15,6 +15,7 @@ import { AlbumComponent } from './album/album.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
     HeaderComponent,
     FooterComponent,
     AlbumComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
