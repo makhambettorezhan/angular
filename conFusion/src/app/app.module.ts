@@ -32,7 +32,9 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { DishService } from './services/dish.service';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -65,12 +67,14 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    { provide: 'BaseURL', useValue: baseURL }
   ],
   entryComponents: [
     LoginComponent
