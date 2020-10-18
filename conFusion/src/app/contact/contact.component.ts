@@ -1,6 +1,7 @@
+import { FeedbackService } from './../services/feedback.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { flyInOut } from '../animations/app.animation';
+import { expand, flyInOut, visibility } from '../animations/app.animation';
 import { Feedback, ContactType } from '../shared/feedback';
 
 @Component({
@@ -12,7 +13,9 @@ import { Feedback, ContactType } from '../shared/feedback';
     'style': 'display: block'
   },
   animations: [
-    flyInOut()
+    flyInOut(),
+    visibility(),
+    expand()
   ]
 })
 export class ContactComponent implements OnInit {
@@ -21,7 +24,9 @@ export class ContactComponent implements OnInit {
   feedback: Feedback;
   contactType = ContactType;
   @ViewChild('fform') feedbackFormDirective;
-
+  feedbackCopy: Feedback;
+  submitted = false;
+  submittedForm = false;
   formErrors = {
     'firstname': '',
     'lastname': '',
@@ -51,7 +56,8 @@ export class ContactComponent implements OnInit {
   };
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private feedbackService: FeedbackService) {
     this.createForm();
   }
 
@@ -99,8 +105,19 @@ export class ContactComponent implements OnInit {
     }
   } 
   onSubmit(): void {
-    this.feedback = this.feedbackForm.value;
-    console.log(this.feedback);
+    this.feedbackCopy = this.feedbackForm.value;
+    console.log(this.feedbackCopy);
+    this.submitted = true;
+    this.submittedForm = true;
+    this.feedbackService.submitFeedback(this.feedbackCopy)
+      .subscribe(feedback => {
+        this.feedback = feedback;
+        this.feedbackCopy = feedback;
+        this.submitted = false;
+      }, errmess => {
+        this.feedback = null;
+        this.feedbackCopy = null;
+      });
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
@@ -111,6 +128,10 @@ export class ContactComponent implements OnInit {
       message: ''
     });
     this.feedbackFormDirective.resetForm();
+    setTimeout(() => {
+      this.feedback = null;
+      this.submittedForm = false;
+    }, 5000);
   }
 
 }
