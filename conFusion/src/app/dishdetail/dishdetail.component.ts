@@ -24,8 +24,8 @@ import { expand, flyInOut, visibility } from '../animations/app.animation';
   ]
 })
 export class DishdetailComponent implements OnInit {
-  
-  
+
+
   dish: Dish;
   errMess: string;
   dishIds: string[];
@@ -37,7 +37,7 @@ export class DishdetailComponent implements OnInit {
   @ViewChild('cform') commentFormDirective;
   dishCopy: Dish;
   visibility = 'shown';
-  
+
   formErrors = {
     'author': '',
     'rating': '',
@@ -54,23 +54,22 @@ export class DishdetailComponent implements OnInit {
     }
   };
 
-  constructor(private dishService: DishService, 
+  constructor(private dishService: DishService,
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
-    @Inject('BaseURL') private BaseURL) { 
+    @Inject('BaseURL') private BaseURL) {
       this.createForm();
     }
 
   ngOnInit(): void {
     this.dishService.getDishIds()
     .subscribe((dishIds) => this.dishIds = dishIds);
-
     this.route.params.pipe(switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishService.getDish(params['id']); }))
     .subscribe(dish => {
       this.dish = dish;
       this.dishCopy = dish;
-      this.setPrevNext(dish.id);
+      this.setPrevNext(dish._id);
       this.visibility = 'shown';
     },
     errmess => this.errMess = <any>errmess);
@@ -80,7 +79,7 @@ export class DishdetailComponent implements OnInit {
       this.onValueChanged(data);
     });
 
-    this.onValueChanged(); // to (re)set form validation messages 
+    this.onValueChanged(); // to (re)set form validation messages
   }
 
   createForm() {
@@ -93,7 +92,7 @@ export class DishdetailComponent implements OnInit {
 
   onValueChanged(data?: any) {
     if(!this.commentForm) { return; } // form not created yet
-    
+
     const form = this.commentForm;
     for(const field in this.formErrors) {
       if(this.formErrors.hasOwnProperty(field)) {
@@ -143,8 +142,8 @@ export class DishdetailComponent implements OnInit {
     this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
   }
-  
-  
+
+
   goBack(): void {
     this.location.back();
   }
